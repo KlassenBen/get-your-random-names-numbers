@@ -1,0 +1,141 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+body {
+  background: #cd853f;
+}
+
+/* IDs */
+
+#rann {
+  font-size: 50px;
+  color: #333;
+  text-align: center;
+  margin: 10px 0 40px 0px;
+  padding: 10px 0 10px 30px;
+  background-color: #8b4513;
+}
+
+#footer {
+  padding: 20px 0;
+  border: 3px;
+  background-color: #8b4513;
+  margin-top: 267.5px;
+  text-align: center;
+  border-top: solid 3px #ed7000;
+}
+
+#display-name {
+  text-align: center;
+}
+
+#update-name {
+  font-family: cursive;
+  background-color: #ed7000;
+  padding: 0px 13px;
+  border: solid 3px rgb(165, 180, 188);
+  border-radius: 12px;
+  font-size: 60px;
+  color: #333;
+  max-width: 30px;
+}
+
+#text-input-name,
+#text-seperate-names {
+  margin-bottom: 5px;
+  font-family: sans-serif, Verdana, Tahoma;
+}
+
+#text-input-name {
+  margin-left: 25%;
+  font-size: 20px;
+}
+
+#text-comma {
+  font-size: 10px;
+}
+
+#text-seperate-names {
+  margin-left: 25%;
+  font-size: 15px;
+}
+
+#text-note {
+  font-weight: 600;
+  font-size: 17px;
+  font-family: Georgia, Times, serif;
+}
+#select {
+  margin-bottom: 20px;
+}
+
+#names {
+  color: #d9ed00;
+  background-color: #cd853f;
+  border: solid 3px #8b451386;
+  border-radius: 13px;
+  width: 300px;
+  padding: 3px;
+  font-size: 23px;
+  margin: 0 0 0 25%;
+  font-family: sans-serif, Verdana, Tahoma;
+}
+
+/* Buttons */
+
+#h1btn {
+  text-align: center;
+}
+
+#btnnew-name {
+  border-radius: 20px;
+  border: solid 2px rgb(165, 180, 188);
+  background: #8b4513;
+  color: #ed7000;
+  font-size: 30px;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+#btnnames,
+#btndice,
+#btnnumbers {
+  border-radius: 12px;
+  padding: 0 10px;
+  font-size: 2rem;
+  text-decoration: none;
+  color: #ed7000;
+  background: rgba(51, 51, 51, 0.713);
+  margin: 10px;
+}
+
+#use-months,
+#use-weekdays {
+  margin-left: 7%;
+  margin-bottom: 20px;
+}
+#use-months {
+  margin-left: 26.5%;
+}
+
+#btnclear-input {
+  margin: 0 0 3% 60%;
+}
+
+/* CLASSES */
+
+.buttons {
+  background-color: #8b451386;
+  padding: 0 10px;
+
+  border: solid 1px #ed7000;
+  border-radius: 20px;
+}
+
+.hidden {
+  opacity: 0;
+}
