@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="index.css" />
+    <title>RNN&amp;D</title>
+  </head>
+  <body>
+    <div id="rann">
+      <div id="fr23">
+        <p id="trann">RNN&amp;D</p>
+        <p id="trannd">Get any Random Names, Numbers, or use Dice</p>
+      </div>
+
+      <div id="frind-logo-con">
+        <img
+          id="img-ind-logo"
+          src="images/dice-logo.png"
+          alt=""
+          height="120px"
+        />
+      </div>
+
+      <div id="fr19">
+        <button class="btnnonactive" id="btnnames">
+          <p id="tnames">Names</p>
+        </button>
+
+        <button class="btnactive" id="btndice"><p id="tdice">Dice</p></button>
+
+        <button class="btnnonactive" id="btnnumbers">
+          <p id="tnumbers">Numbers</p>
+        </button>
+      </div>
+    </div>
+
+    <div id="fr1">
+      <!-- names start here -->
+      <div id="frnames" class="fr2" style="transform: translateX(-100%)">
+        <div id="fr239">
+          <div id="fr238">
+            <div id="fr234"><span id="update-name">Name</span></div>
+
+            <div id="fr248">
+              <div id="fr246">
+                <p id="tfr246">Quick select:</p>
+
+                <div id="fr247">
+                  <button id="use-weekdays" class="fr219-45">Week days</button>
+
+                  <button id="use-months" class="fr219-45">Months</button>
+
+                  <button id="btnclear-input" class="fr219-45">Clear</button>
+                </div>
+              </div>
+
+              <div id="fr235">
+                <p id="text-input-name">Input your custom names here:</p>
+
+                <div id="fr236">
+                  <input
+                    type="text"
+                    placeholder="Carol, Jorge, Emmy"
+                    id="names"
+                  />
+
+                  <p id="text-seperate-names">
+                    Rember to seperate your names with commas (,)
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button id="btnnew-name">New Name</button>
+        </div>
+      </div>
+      <!-- names ends here -->
+
+      <!-- dice starts here -->
+      <div id="frdice" class="fr2" style="transform: translateX(-100%)">
+        <div id="fr339">
+          <div id="fr361">
+            <div id="fr360">
+              <p id="tfr360sum">Sum:</p>
+              <p id="tfr360num">7</p>
+            </div>
+            <div id="fr362">
+              <p id="tfr362">Tap dice to remove dice</p>
+              <div id="fr351">
+                <div id="fr349">
+                  <img
+                    id="img-black-1"
+                    class="imgdice-use"
+                    src="images/black-1.png"
+                    data-color="black"
+                    data-number="1"
+                    alt=""
+                  />
+                  <img
+                    id="img-red-6"
+                    class="imgdice-use"
+                    src="images/red-6.png"
+                    data-color="red"
+                    data-number="6"
+                    alt=""
+                  />
+                </div>
+                <button id="btnthrow-dice">Tap</button>
+              </div>
+            </div>
+          </div>
+          <div id="fr359">
+            <p id="tfr359">Grab your dice</p>
+            <div id="fr352">
+              <img
+                class="imgdice-not-use"
+                src="images/blue-1.png"
+                data-color="blue"
+                data-number="1"
+                alt=""
+              />
+              <img
+                class="imgdice-not-use"
+                src="images/yellow-3.png"
+                data-color="yellow"
+                data-number="3"
+                alt=""
+              />
+              <img
+                class="imgdice-not-use"
+                src="images/gblue-4.png"
+                data-color="gblue"
+                data-number="4"
+                alt=""
+              />
+              <img
+                class="imgdice-not-use"
+                src="images/green-5.png"
+                data-color="green"
+                data-number="5"
+                alt=""
+              />
+            </div>
+            <p id="tfr359add">Tap dice to add dice</p>
+          </div>
+        </div>
+      </div>
+      <!-- dice ends here -->
+
+      <!-- numbers starts here -->
+      <div id="frnumbers" class="fr2" style="transform: translateX(-100%)">
+        <div id="fr32">
+          <div id="fr64">
+            <div id="fr30">
+              <p id="text-num-bet">Numbers between</p>
+
+              <div id="fr63">
+                  <input
+                    id="first-number"
+                    class="number-between"
+                    type="number"
+                  />
+                  <button id="btnreset">Reset</button>
+                  <input
+                    id="last-number"
+                    class="number-between"
+                    type="number"
+                  />
+                </p>
+              </div>
+            </div>
+            <div id="number"><span id="new-number" class="">5</span></div>
+          </div>
+
+          <div id="h1btn">
+            <button id="btnnew-number">
+              <p id="tbtn-new-number">New number</p>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- numbers ends here -->
+    </div>
+
+    <div id="footer">
+      <p id="ft-text">© copyright by M&amp;WDesigns 2023</p>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
