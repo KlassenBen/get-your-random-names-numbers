@@ -1,95 +1,95 @@
-'use strict';
+"use strict";
 
 // Selecting Elements
-const welcomeMs = document.querySelector('#fr470');
-const explainMs = document.querySelector('#fr569');
-const body = document.querySelector('body');
-const newNumber = document.querySelector('#new-number');
-const newNumberContainer = document.querySelector('#number');
-const minNumber = document.querySelector('#first-number');
-const maxNumber = document.querySelector('#last-number');
-const diceImg = document.querySelector('#dice1');
-const frnumbers32 = document.querySelector('#fr32');
-const frdice339 = document.querySelector('#fr339');
-const frnames239 = document.querySelector('#fr239');
-const frnumbers = document.querySelector('#frnumbers');
-const frnames = document.querySelector('#frnames');
-const frdice = document.querySelector('#frdice');
+const welcomeMs = document.querySelector("#fr470");
+const explainMs = document.querySelector("#fr569");
+const body = document.querySelector("body");
+const newNumber = document.querySelector("#new-number");
+const newNumberContainer = document.querySelector("#number");
+const minNumber = document.querySelector("#first-number");
+const maxNumber = document.querySelector("#last-number");
+const diceImg = document.querySelector("#dice1");
+const frnumbers32 = document.querySelector("#fr32");
+const frdice339 = document.querySelector("#fr339");
+const frnames239 = document.querySelector("#fr239");
+const frnumbers = document.querySelector("#frnumbers");
+const frnames = document.querySelector("#frnames");
+const frdice = document.querySelector("#frdice");
 
-const newNameContainer = document.querySelector('#fr234');
-const updateName = document.querySelector('#update-name');
-const inputNames = document.querySelector('#names');
-const btnnewName = document.querySelector('#btnnew-name');
-const btnClearInput = document.querySelector('#btnclear-input');
-const btnweekdays = document.querySelector('#use-weekdays');
-const btnmonths = document.querySelector('#use-months');
+const newNameContainer = document.querySelector("#fr234");
+const updateName = document.querySelector("#update-name");
+const inputNames = document.querySelector("#names");
+const btnnewName = document.querySelector("#btnnew-name");
+const btnClearInput = document.querySelector("#btnclear-input");
+const btnweekdays = document.querySelector("#use-weekdays");
+const btnmonths = document.querySelector("#use-months");
 
-const imgIndLogo = document.querySelector('#img-ind-logo');
+const imgIndLogo = document.querySelector("#img-ind-logo");
 
 // start dice
-const TSumOfDice = document.querySelector('#tfr360num');
+const TSumOfDice = document.querySelector("#tfr360num");
 
-const conUseDice = document.querySelector('#fr349');
-const conNotUseDice = document.querySelector('#fr352');
+const conUseDice = document.querySelector("#fr349");
+const conNotUseDice = document.querySelector("#fr352");
 
-const btnThrowDice = document.querySelector('#btnthrow-dice');
+const btnThrowDice = document.querySelector("#btnthrow-dice");
 // end dice
 
 // --> Buttons
-const btnnames = document.querySelector('#btnnames');
-const btndice = document.querySelector('#btndice');
-const btnnumbers = document.querySelector('#btnnumbers');
+const btnnames = document.querySelector("#btnnames");
+const btndice = document.querySelector("#btndice");
+const btnnumbers = document.querySelector("#btnnumbers");
 
-const btnRand = document.querySelector('#btnnew-number');
-const btnReset = document.querySelector('#btnreset');
-const btnGotIt = document.querySelector('#btngot-it');
+const btnRand = document.querySelector("#btnnew-number");
+const btnReset = document.querySelector("#btnreset");
+const btnGotIt = document.querySelector("#btngot-it");
 
 //Building
 
 class App {
   #months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
   ];
 
   #weekdays = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
   ];
 
   #colors = [
-    '#ffebcd',
-    '#a52a2a',
-    '#deb887',
-    '#d2691e',
-    '#dc143c',
-    '#006400',
-    '#556b2f',
-    '#8b008b',
-    '#9400d3',
-    '#b22222',
-    '#ff00ff',
-    '#ffd700',
-    '#f08080',
-    '#ff4500',
-    '#6a5acd',
-    '#ee82ee',
-    '#9acd32',
+    "#ffebcd",
+    "#a52a2a",
+    "#deb887",
+    "#d2691e",
+    "#dc143c",
+    "#006400",
+    "#556b2f",
+    "#8b008b",
+    "#9400d3",
+    "#b22222",
+    "#ff00ff",
+    "#ffd700",
+    "#f08080",
+    "#ff4500",
+    "#6a5acd",
+    "#ee82ee",
+    "#9acd32",
   ];
 
   constructor() {
@@ -105,18 +105,18 @@ class App {
   }
 
   _onbording() {
-    welcomeMs.style.transform = 'translateY(190%)';
+    welcomeMs.style.transform = "translateY(190%)";
     setTimeout(function () {
-      welcomeMs.style.opacity = '0';
-      welcomeMs.style.rotate = '-60deg';
+      welcomeMs.style.opacity = "0";
+      welcomeMs.style.rotate = "-60deg";
       setTimeout(function () {
-        welcomeMs.style.display = 'none';
-        explainMs.style.transform = 'translateY(500px)';
+        welcomeMs.style.display = "none";
+        explainMs.style.transform = "translateY(500px)";
         setTimeout(function () {
-          explainMs.style.transform = 'translateY(0px)';
+          explainMs.style.transform = "translateY(0px)";
         }, 10000);
       }, 1400);
-    }, 3500);
+    }, 3000);
   }
 
   _initDice() {
@@ -125,51 +125,51 @@ class App {
   }
 
   _displayDice() {
-    imgIndLogo.src = 'images/dice-logo.png';
-    btnnames.classList.remove('btnactive');
-    btnnames.classList.add('btnnonactive');
+    imgIndLogo.src = "images/dice-logo.png";
+    btnnames.classList.remove("btnactive");
+    btnnames.classList.add("btnnonactive");
 
-    btndice.classList.remove('btnnonactive');
-    btndice.classList.add('btnactive');
+    btndice.classList.remove("btnnonactive");
+    btndice.classList.add("btnactive");
 
-    btnnumbers.classList.remove('btnactive');
-    btnnumbers.classList.add('btnnonactive');
+    btnnumbers.classList.remove("btnactive");
+    btnnumbers.classList.add("btnnonactive");
 
-    frnumbers.style.transform = 'translateX(0)';
-    frdice.style.transform = 'translateX(-100%)';
-    frnames.style.transform = 'translateX(-100%)';
+    frnumbers.style.transform = "translateX(0)";
+    frdice.style.transform = "translateX(-100%)";
+    frnames.style.transform = "translateX(-100%)";
   }
 
   _displayNames() {
-    imgIndLogo.src = 'images/names-logo.png';
-    btnnames.classList.remove('btnnonactive');
-    btnnames.classList.add('btnactive');
+    imgIndLogo.src = "images/names-logo.png";
+    btnnames.classList.remove("btnnonactive");
+    btnnames.classList.add("btnactive");
 
-    btndice.classList.add('btnnonactive');
-    btndice.classList.remove('btnactive');
+    btndice.classList.add("btnnonactive");
+    btndice.classList.remove("btnactive");
 
-    btnnumbers.classList.remove('btnactive');
-    btnnumbers.classList.add('btnnonactive');
+    btnnumbers.classList.remove("btnactive");
+    btnnumbers.classList.add("btnnonactive");
 
-    frnames.style.transform = 'translateX(0)';
-    frdice.style.transform = 'translateX(0%)';
-    frnumbers.style.transform = 'translateX(0%)';
+    frnames.style.transform = "translateX(0)";
+    frdice.style.transform = "translateX(0%)";
+    frnumbers.style.transform = "translateX(0%)";
   }
 
   _displayNumbers() {
-    imgIndLogo.src = 'images/numbers-logo.png';
-    btnnames.classList.remove('btnactive');
-    btnnames.classList.add('btnnonactive');
+    imgIndLogo.src = "images/numbers-logo.png";
+    btnnames.classList.remove("btnactive");
+    btnnames.classList.add("btnnonactive");
 
-    btndice.classList.add('btnnonactive');
-    btndice.classList.remove('btnactive');
+    btndice.classList.add("btnnonactive");
+    btndice.classList.remove("btnactive");
 
-    btnnumbers.classList.add('btnactive');
-    btnnumbers.classList.remove('btnnonactive');
+    btnnumbers.classList.add("btnactive");
+    btnnumbers.classList.remove("btnnonactive");
 
-    frnames.style.transform = 'translateX(-200%)';
-    frdice.style.transform = 'translateX(-200%)';
-    frnumbers.style.transform = 'translateX(-200%)';
+    frnames.style.transform = "translateX(-200%)";
+    frdice.style.transform = "translateX(-200%)";
+    frnumbers.style.transform = "translateX(-200%)";
   }
   //
 
@@ -212,17 +212,17 @@ class App {
   }
 
   _randNameUpdate() {
-    if (inputNames.value === '') {
-      inputNames.value = 'Input at least two names';
+    if (inputNames.value === "") {
+      inputNames.value = "Input at least two names";
     }
     const arrNames = [];
-    arrNames.push(inputNames.value.split(','));
+    arrNames.push(inputNames.value.split(","));
 
     const num = this._randFunction(arrNames.flat(2).length);
 
     const name = arrNames.flat()[num];
-    if (inputNames.value === 'Input at least two names') {
-      updateName.textContent = 'Name';
+    if (inputNames.value === "Input at least two names") {
+      updateName.textContent = "Name";
     } else {
       updateName.textContent = name;
     }
@@ -308,7 +308,7 @@ class App {
         // conUseDice.style.rotate = `${curdeg}deg`;
         conUseDice.style.transform = `translateY(${curdeg}%`;
       } else {
-        console.log('done');
+        console.log("done");
         clearInterval(rotate);
 
         const rotateback = setInterval(function () {
@@ -343,13 +343,13 @@ class App {
   }
 
   _choseMonth() {
-    inputNames.value = this.#months.join(', ');
+    inputNames.value = this.#months.join(", ");
   }
   _choseWeekdays() {
-    inputNames.value = this.#weekdays.join(', ');
+    inputNames.value = this.#weekdays.join(", ");
   }
   _clearNamesInput() {
-    inputNames.value = '';
+    inputNames.value = "";
   }
 
   _setDice() {
@@ -366,7 +366,7 @@ class App {
     let html = ``;
 
     for (let i = 0; i < arrLength; i++) {
-      const color = conUseDice.children[i].getAttribute('data-color');
+      const color = conUseDice.children[i].getAttribute("data-color");
       colors.push(color);
     }
 
@@ -382,10 +382,10 @@ class App {
     />`;
     }
     this._setDice();
-    conUseDice.insertAdjacentHTML('beforeend', html);
+    conUseDice.insertAdjacentHTML("beforeend", html);
 
     for (let i = 0; i < arrLength; i++) {
-      const number = conUseDice.children[i].getAttribute('data-number');
+      const number = conUseDice.children[i].getAttribute("data-number");
       // colors.push(color);
       sum += Number(number);
     }
@@ -394,27 +394,27 @@ class App {
 
   _events() {
     //  numbers here
-    btnRand.addEventListener('click', this._getRandomNumber.bind(this));
+    btnRand.addEventListener("click", this._getRandomNumber.bind(this));
 
-    btnReset.addEventListener('click', this._resetNumbers.bind(this));
-    btnnames.addEventListener('click', this._displayNames.bind(this));
+    btnReset.addEventListener("click", this._resetNumbers.bind(this));
+    btnnames.addEventListener("click", this._displayNames.bind(this));
 
-    btndice.addEventListener('click', this._displayDice.bind(this));
+    btndice.addEventListener("click", this._displayDice.bind(this));
 
-    btnnumbers.addEventListener('click', this._displayNumbers.bind(this));
+    btnnumbers.addEventListener("click", this._displayNumbers.bind(this));
 
     // names here
-    btnnewName.addEventListener('click', this._newName.bind(this));
+    btnnewName.addEventListener("click", this._newName.bind(this));
 
-    btnClearInput.addEventListener('click', this._clearNamesInput.bind(this));
+    btnClearInput.addEventListener("click", this._clearNamesInput.bind(this));
 
-    btnmonths.addEventListener('click', this._choseMonth.bind(this));
-    btnweekdays.addEventListener('click', this._choseWeekdays.bind(this));
+    btnmonths.addEventListener("click", this._choseMonth.bind(this));
+    btnweekdays.addEventListener("click", this._choseWeekdays.bind(this));
 
     //
 
-    conUseDice.addEventListener('click', function (e) {
-      if (e.target.classList.contains('imgdice-use')) {
+    conUseDice.addEventListener("click", function (e) {
+      if (e.target.classList.contains("imgdice-use")) {
         let html;
 
         html = `<img
@@ -429,12 +429,12 @@ class App {
         console.log(e.target.dataset.color);
         e.target.remove();
 
-        conNotUseDice.insertAdjacentHTML('beforeend', html);
+        conNotUseDice.insertAdjacentHTML("beforeend", html);
       }
     });
 
-    conNotUseDice.addEventListener('click', function (e) {
-      if (e.target.classList.contains('imgdice-not-use')) {
+    conNotUseDice.addEventListener("click", function (e) {
+      if (e.target.classList.contains("imgdice-not-use")) {
         let html;
 
         html = `<img
@@ -447,20 +447,20 @@ class App {
 
         e.target.remove();
 
-        conUseDice.insertAdjacentHTML('beforeend', html);
+        conUseDice.insertAdjacentHTML("beforeend", html);
       }
     });
 
-    btnThrowDice.addEventListener('click', this._throwDice.bind(this));
+    btnThrowDice.addEventListener("click", this._throwDice.bind(this));
 
-    btnGotIt.addEventListener('click', function () {
-      explainMs.style.transform = 'translateY(0px)';
+    btnGotIt.addEventListener("click", function () {
+      explainMs.style.transform = "translateY(0px)";
     });
   }
 
   //
 }
-const app = new App('here');
+const app = new App("here");
 
 // and App here
 
