@@ -225,6 +225,7 @@ body {
   font-weight: 200;
   line-height: normal;
   letter-spacing: 0.48px;
+  text-align: center;
 }
 /* Buttons */
 #reset {
