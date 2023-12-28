@@ -1,7 +1,15 @@
 "use strict";
 
 // Selecting Elements
+const fr1 = document.querySelector("#fr1");
 const welcomeMs = document.querySelector("#fr470");
+const btnContainer = document.querySelector("#fr19");
+const tPreventRerollsDisp = document.querySelector("#tprevent-rerolls-disp");
+const tPreventRerollsDispnames = document.querySelector(
+  "#tprevent-rerolls-disp-names"
+);
+
+const arrowChoose = document.querySelector("#arrow");
 const explainMs = document.querySelector("#fr569");
 const body = document.querySelector("body");
 const newNumber = document.querySelector("#new-number");
@@ -19,7 +27,6 @@ const frdice = document.querySelector("#frdice");
 const newNameContainer = document.querySelector("#fr234");
 const updateName = document.querySelector("#update-name");
 const inputNames = document.querySelector("#names");
-const btnnewName = document.querySelector("#btnnew-name");
 const btnClearInput = document.querySelector("#btnclear-input");
 const btnweekdays = document.querySelector("#use-weekdays");
 const btnmonths = document.querySelector("#use-months");
@@ -32,7 +39,14 @@ const TSumOfDice = document.querySelector("#tfr360num");
 const conUseDice = document.querySelector("#fr349");
 const conNotUseDice = document.querySelector("#fr352");
 
+const btnnewName = document.querySelector("#btnnew-name");
 const btnThrowDice = document.querySelector("#btnthrow-dice");
+const btnRand = document.querySelector("#btnnew-number");
+const btnPreventRerollsnumbers = document.querySelector("#btnprevent-rerolls");
+const btnPreventRerollsnames = document.querySelector(
+  "#btnprevent-rerolls-names"
+);
+const btnRandText = document.querySelector("#tbtn-new-number");
 // end dice
 
 // --> Buttons
@@ -40,7 +54,6 @@ const btnnames = document.querySelector("#btnnames");
 const btndice = document.querySelector("#btndice");
 const btnnumbers = document.querySelector("#btnnumbers");
 
-const btnRand = document.querySelector("#btnnew-number");
 const btnReset = document.querySelector("#btnreset");
 const btnGotIt = document.querySelector("#btngot-it");
 
@@ -101,22 +114,54 @@ class App {
     this._resetNumbers();
     this._initDice();
     this._onbording();
-    // this._initDice();
+    this._animatarrow(0.4, 3, 2000, 15);
   }
 
   _onbording() {
+    // fr1.style.bac
     welcomeMs.style.transform = "translateY(190%)";
     setTimeout(function () {
       welcomeMs.style.opacity = "0";
       welcomeMs.style.rotate = "-60deg";
       setTimeout(function () {
         welcomeMs.style.display = "none";
-        explainMs.style.transform = "translateY(500px)";
+        explainMs.style.transform = "translateY(540px)";
         setTimeout(function () {
           explainMs.style.transform = "translateY(0px)";
-        }, 10000);
+        }, 30000);
       }, 1400);
-    }, 3000);
+    }, 3500);
+
+    const colorNewNameBtn = function (color1, color2, time) {
+      let curCol = color1;
+      setInterval(function () {
+        if (curCol === color1) {
+          btnnewName.style.color = `#${color1}`;
+          btnnewName.style.transform = "translateY(0px)";
+
+          btnRandText.style.color = `#${color1}`;
+          // btnRand.style.backgroundColor = `#${color2}`;
+
+          btnRand.style.transform = "translateY(0px)";
+          curCol = color2;
+        } else {
+          btnnewName.style.color = `#${color2}`;
+          btnnewName.style.transform = "translateY(1px)";
+
+          btnRandText.style.color = `#${color2}`;
+          // btnRand.style.backgroundColor = `#${color1}`;
+          btnRand.style.transform = "translateY(1px)";
+          curCol = color1;
+        }
+      }, time);
+    };
+    colorNewNameBtn("FFFFFF", "CECECE", 1000);
+  }
+  _seeExplainMs() {
+    explainMs.style.transform = "translateY(540px)";
+    setTimeout(function () {
+      explainMs.style.transform = "translateY(0px)";
+    }, 30000);
   }
 
   _initDice() {
@@ -187,8 +232,8 @@ class App {
 
   //
   _resetNumbers() {
-    minNumber.value = 1;
-    maxNumber.value = 6;
+    minNumber.value = 2;
+    maxNumber.value = 12;
     newNumber.textContent = 5;
   }
 
@@ -200,7 +245,24 @@ class App {
   _getRandomNumber() {
     const min = Number(minNumber.value);
     const max = Number(maxNumber.value);
-    newNumber.textContent = this._random(min, max);
+    const num = this._random(min, max);
+    this._getRandomNumberFunc(num);
+  }
+
+  _getRandomNumberFunc(number) {
+    const curnumber = Number(newNumber.textContent);
+
+    if (
+      number === curnumber &&
+      btnPreventRerollsnumbers.dataset.on === "true"
+    ) {
+      this._getRandomNumber();
+      // console.error('reroll', `disp${curnumber}`, `Upd${number}`);
+    } else {
+      newNumber.textContent = number;
+      // console.log(`disp${curnumber}`, `Upd${number}`);
+    }
+
     this._animateNumber(0.3, 1, 7, -8);
   }
 
@@ -213,7 +275,7 @@ class App {
 
   _randNameUpdate() {
     if (inputNames.value === "") {
-      inputNames.value = "Input at least two names";
+      inputNames.value = "Type in at least two names";
     }
     const arrNames = [];
     arrNames.push(inputNames.value.split(","));
@@ -221,11 +283,32 @@ class App {
     const num = this._randFunction(arrNames.flat(2).length);
 
     const name = arrNames.flat()[num];
-    if (inputNames.value === "Input at least two names") {
-      updateName.textContent = "Name";
+    if (inputNames.value === "Type in at least two names") {
+      inputNames.classList.remove("yes-names");
+      inputNames.classList.add("no-names");
+      updateName.textContent = "No names to pick from";
     } else {
+      this._updateNameNow(name);
+      inputNames.classList.remove("no-names");
+      inputNames.classList.add("yes-names");
+    }
+  }
+
+  _updateNameNow(name) {
+    const curname = updateName.textContent;
+    if (name === curname && btnPreventRerollsnames.dataset.on === "true") {
+      // console.error('reroll');
+      this._randNameUpdate();
+    } else {
+      // console.log('Go');
       updateName.textContent = name;
     }
+  }
+
+  _newName() {
+    this._randNameUpdate();
+
+    this._animateName(0.3, 1, 2.3, -3.5);
   }
 
   _colorChange() {
@@ -298,17 +381,97 @@ class App {
     }, time);
   }
 
+  _animateDiceThrouwBtn(deg, time, degplus, degminus) {
+    let curdeg = 0;
+    const rotate = setInterval(function () {
+      curdeg += deg;
+
+      if (curdeg <= degplus) {
+        btnThrowDice.style.rotate = `${curdeg}deg`;
+      } else {
+        clearInterval(rotate);
+
+        const rotateback = setInterval(function () {
+          curdeg -= deg;
+
+          if (curdeg >= degminus) {
+            btnThrowDice.style.rotate = `${curdeg}deg`;
+          } else {
+            clearInterval(rotateback);
+
+            const rotateZero = setInterval(function () {
+              curdeg += deg;
+
+              if (curdeg <= 0) {
+                btnThrowDice.style.rotate = `${curdeg}deg`;
+              } else {
+                clearInterval(rotateZero);
+              }
+            }, time);
+          }
+        }, time);
+      }
+    }, time);
+  }
+
+  _animatarrow(px, time, time2, pxplus) {
+    const btnConAni = function (px, time, pxplus) {
+      let pxhere = 0;
+      const moveUp = setInterval(function () {
+        if (pxhere >= pxplus) {
+          pxhere -= px;
+          btnContainer.style.transform = `translateY(${pxhere}px)`;
+        } else {
+          clearInterval(moveUp);
+          const movedown = setInterval(function () {
+            pxhere += px;
+            if (pxhere <= 0) {
+              // pxhere += px;
+              btnContainer.style.transform = `translateY(${pxhere}px)`;
+            } else {
+              clearInterval(movedown);
+            }
+          }, time);
+        }
+      }, time);
+    };
+
+    setInterval(function () {
+      let pxarrow = 0;
+      const moveArrow = function () {
+        const moveClose = setInterval(function () {
+          if (pxarrow <= pxplus) {
+            pxarrow += px;
+            arrowChoose.style.transform = `translateX(${pxarrow}px)`;
+          } else {
+            clearInterval(moveClose);
+            btnConAni(0.6, 1, -12);
+            const moveAway = setInterval(function () {
+              if (pxarrow >= 0) {
+                pxarrow -= px;
+                arrowChoose.style.transform = `translateX(${pxarrow}px)`;
+              } else {
+                clearInterval(moveAway);
+              }
+            }, time);
+          }
+        }, time);
+      };
+      moveArrow();
+
+      // arrowChoose.style.transform = `translateX(${px}px)`;
+    }, time2);
+  }
+
   _animateDice(deg, time, degplus, degminus) {
     let curdeg = 0;
     const rotate = setInterval(function () {
       curdeg -= deg;
-      console.log(curdeg);
 
+      conUseDice.style.transform = `translateY(${curdeg}%`;
       if (curdeg >= degplus) {
         // conUseDice.style.rotate = `${curdeg}deg`;
-        conUseDice.style.transform = `translateY(${curdeg}%`;
       } else {
-        console.log("done");
         clearInterval(rotate);
 
         const rotateback = setInterval(function () {
@@ -336,12 +499,6 @@ class App {
     }, time);
   }
 
-  _newName() {
-    this._randNameUpdate();
-
-    this._animateName(0.3, 1, 2.3, -3.5);
-  }
-
   _choseMonth() {
     inputNames.value = this.#months.join(", ");
   }
@@ -360,6 +517,7 @@ class App {
 
   _throwDice() {
     this._animateDice(0.5, 1, -10, 3);
+    this._animateDiceThrouwBtn(0.6, 1, 7, -8);
     let sum = 0;
     const colors = [];
     const arrLength = conUseDice.childElementCount;
@@ -425,8 +583,6 @@ class App {
         alt=""
       />`;
 
-        console.log(html);
-        console.log(e.target.dataset.color);
         e.target.remove();
 
         conNotUseDice.insertAdjacentHTML("beforeend", html);
@@ -452,9 +608,45 @@ class App {
     });
 
     btnThrowDice.addEventListener("click", this._throwDice.bind(this));
+    arrowChoose.addEventListener("click", this._seeExplainMs.bind(this));
 
     btnGotIt.addEventListener("click", function () {
       explainMs.style.transform = "translateY(0px)";
+    });
+
+    btnPreventRerollsnumbers.addEventListener("click", function (e) {
+      if (e.target.dataset.on === "false") {
+        console.log("false");
+        e.target.classList.remove("btnrerolls-num-non-act");
+        e.target.classList.add("btnrerolls-num-act");
+        e.target.textContent = "Get rerolls";
+        e.target.dataset.on = "true";
+        tPreventRerollsDisp.textContent = "You WILL NOT get rerolls";
+      } else {
+        console.log("true");
+        e.target.classList.remove("btnrerolls-num-act");
+        e.target.classList.add("btnrerolls-num-non-act");
+        e.target.textContent = "Prevent rerolls";
+        e.target.dataset.on = "false";
+        tPreventRerollsDisp.textContent = "You WILL get rerolls";
+      }
+    });
+    btnPreventRerollsnames.addEventListener("click", function (e) {
+      if (e.target.dataset.on === "false") {
+        console.log("false");
+        e.target.classList.remove("btnrerolls-num-non-act");
+        e.target.classList.add("btnrerolls-num-act");
+        e.target.textContent = "Get rerolls";
+        e.target.dataset.on = "true";
+        tPreventRerollsDispnames.textContent = "You WILL NOT get rerolls";
+      } else {
+        console.log("true");
+        e.target.classList.remove("btnrerolls-num-act");
+        e.target.classList.add("btnrerolls-num-non-act");
+        e.target.textContent = "Prevent rerolls";
+        e.target.dataset.on = "false";
+        tPreventRerollsDispnames.textContent = "You WILL get rerolls";
+      }
     });
   }
 
