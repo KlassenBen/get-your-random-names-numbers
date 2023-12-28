@@ -125,7 +125,7 @@ class App {
       welcomeMs.style.rotate = "-60deg";
       setTimeout(function () {
         welcomeMs.style.display = "none";
-        explainMs.style.transform = "translateY(540px)";
+        explainMs.style.transform = "translateY(570px)";
         setTimeout(function () {
           explainMs.style.transform = "translateY(0px)";
         }, 30000);
@@ -158,7 +158,7 @@ class App {
     colorNewNameBtn("FFFFFF", "CECECE", 1000);
   }
   _seeExplainMs() {
-    explainMs.style.transform = "translateY(540px)";
+    explainMs.style.transform = "translateY(570px)";
     setTimeout(function () {
       explainMs.style.transform = "translateY(0px)";
     }, 30000);
