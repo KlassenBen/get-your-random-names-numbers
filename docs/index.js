@@ -125,7 +125,7 @@ class App {
       welcomeMs.style.rotate = "-60deg";
       setTimeout(function () {
         welcomeMs.style.display = "none";
-        explainMs.style.transform = "translateY(570px)";
+        explainMs.style.transform = "translateY(700px)";
         setTimeout(function () {
           explainMs.style.transform = "translateY(0px)";
         }, 30000);
