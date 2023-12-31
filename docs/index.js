@@ -158,7 +158,7 @@ class App {
     colorNewNameBtn("FFFFFF", "CECECE", 1000);
   }
   _seeExplainMs() {
-    explainMs.style.transform = "translateY(570px)";
+    explainMs.style.transform = "translateY(700px)";
     setTimeout(function () {
       explainMs.style.transform = "translateY(0px)";
     }, 30000);

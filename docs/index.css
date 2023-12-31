@@ -13,7 +13,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  overflow-y: scroll;
+  /* overflow-x: scroll; */
 }
 
 #fr1 {
@@ -144,7 +144,7 @@ body {
 #fr339 {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   gap: 70px;
   flex: 1 0 0;
@@ -665,6 +665,18 @@ body {
 
 /* dice starting here */
 
+#frdice {
+  padding: 20px;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* gap: 70px; */
+  /* flex: 1 0 0; */
+  /* align-self: stretch; */
+  /* overflow: scroll; */
+}
+
 #fr361 {
   display: flex;
   flex-direction: column;
@@ -716,6 +728,7 @@ body {
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
+  margin: 32px;
 }
 
 #tfr362 {
@@ -738,11 +751,10 @@ body {
 #fr349 {
   min-height: 200px;
   min-width: 450px;
-  display: flex;
+  display: inline;
   padding: 12px 16px;
-  justify-content: center;
-  align-items: center;
-  gap: 32px;
+  text-align: center;
+  padding: 20px;
   border-radius: 10px 10px 0px 0px;
   border: 2px solid #ffca8c;
   background: linear-gradient(
@@ -783,8 +795,17 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* align-items: flex-start; */
+  align-items: flex-start;
+  text-align: center;
   gap: 12px;
+}
+#fr3592 {
+  /* display: flex; */
+  /* flex-direction: column; */
+  align-items: center;
+  /* align-items: flex-start; */
+  /* text-align: center; */
+  /* gap: 12px; */
 }
 
 #tfr359 {
@@ -825,6 +846,8 @@ body {
 }
 
 .imgdice-use {
+  /* display: inline; */
+  margin: 12px;
   height: 200px;
   border-radius: 25px;
   box-shadow: 5px 5px 5px 1px #4b4b4b;
@@ -868,7 +891,7 @@ body {
 #fr470 {
   display: inline-flex;
   position: absolute;
-  top: -500px;
+  top: -550px;
   padding: 120px 96px;
   flex-direction: column;
   justify-content: center;
@@ -904,6 +927,7 @@ body {
   display: inline-flex;
   position: absolute;
   top: -460px;
+  right: 11.8%;
   padding: 16px;
   flex-direction: column;
   justify-content: center;
