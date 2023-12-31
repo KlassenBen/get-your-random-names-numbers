@@ -663,18 +663,14 @@ body {
   letter-spacing: 0.96px;
 }
 
+#frnumbers {
+  padding: 20px;
+}
+
 /* dice starting here */
 
 #frdice {
   padding: 20px;
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* gap: 70px; */
-  /* flex: 1 0 0; */
-  /* align-self: stretch; */
-  /* overflow: scroll; */
 }
 
 #fr361 {
@@ -726,7 +722,8 @@ body {
 #fr362 {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  /* align-items: flex-start; */
+  /* text-align: center; */
   gap: 8px;
   margin: 32px;
 }
